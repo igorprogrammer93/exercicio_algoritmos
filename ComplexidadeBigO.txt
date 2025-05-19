@@ -1,0 +1,62 @@
+Análise de Complexidade Assintótica (Big-O)
+===========================================
+
+1. PILHA (Stack)
+----------------
+Implementação: Usando array interno e ponteiro "topo".
+
+- push(int valor)
+  Tempo: O(1) → Inserção no topo é direta.
+  Espaço: O(1) por operação. O(n) no total (n = capacidade).
+
+- pop()
+  Tempo: O(1) → Remoção do topo é direta.
+  Espaço: O(1)
+
+2. FILA (Queue)
+---------------
+Implementação: Usando array circular com índices "início" e "fim".
+
+- enqueue(int valor)
+  Tempo: O(1) → Inserção no final (rear) é direta.
+  Espaço: O(1) por operação. O(n) no total (n = capacidade).
+
+- dequeue()
+  Tempo: O(1) → Remoção no início (front) é direta.
+  Espaço: O(1)
+
+- front()
+  Tempo: O(1) → Acesso direto ao índice de início.
+  Espaço: O(1)
+
+- rear()
+  Tempo: O(1) → Acesso direto ao índice de fim.
+  Espaço: O(1)
+
+3. LISTA ENCADEADA (Linked List)
+--------------------------------
+Implementação: Lista simplesmente encadeada com classe Node.
+
+- push(Node node)
+  Tempo: O(n) → Necessário percorrer até o fim da lista para adicionar.
+  Espaço: O(1) por operação. O(n) no total.
+
+- pop()
+  Tempo: O(n) → Percorre até o penúltimo para remover o último.
+  Espaço: O(1)
+
+- insert(int index, Node node)
+  Tempo: O(n) → Percorre até a posição desejada.
+  Espaço: O(1)
+
+- remove(int index)
+  Tempo: O(n) → Percorre até o índice e ajusta ponteiros.
+  Espaço: O(1)
+
+- elementAt(int index)
+  Tempo: O(n) → Percorre até o índice.
+  Espaço: O(1)
+
+Observação:
+-----------
+Essas complexidades podem variar se usarmos listas duplamente encadeadas ou estruturas com ponteiros adicionais (como tail). Nossa implementação é simples.
