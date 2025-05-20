@@ -1,8 +1,3 @@
-/**
- * Implementação de uma estrutura de dados Pilha (Stack) para inteiros.
- * Métodos: push, pop, top, isEmpty, size
- */
-
 public class MinhaPilha {
     private int[] elementos;
     private int topo;
@@ -12,7 +7,6 @@ public class MinhaPilha {
         topo = -1;
     }
 
-    // push() → Coloca um inteiro no topo da pilha.
     public void push(int valor) {
         if (topo == elementos.length - 1) {
             throw new IllegalStateException("Pilha cheia");
@@ -20,7 +14,6 @@ public class MinhaPilha {
         elementos[++topo] = valor;
     }
 
-    // pop() → Remove o valor do topo da pilha e o retorna ao chamador.
     public int pop() {
         if (isEmpty()) {
             throw new IllegalStateException("Pilha vazia");
@@ -28,7 +21,6 @@ public class MinhaPilha {
         return elementos[topo--];
     }
 
-    // top() → Espia o inteiro que está no topo e o retorna sem mexer na pilha.
     public int top() {
         if (isEmpty()) {
             throw new IllegalStateException("Pilha vazia");
@@ -36,12 +28,10 @@ public class MinhaPilha {
         return elementos[topo];
     }
 
-    // isEmpty() → Retorna true ou false dependendo da pilha estar vazia ou não.
     public boolean isEmpty() {
         return topo == -1;
     }
 
-    // size() → Retorna um valor inteiro com o número de elementos da pilha.
     public int size() {
         return topo + 1;
     }

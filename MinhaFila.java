@@ -1,8 +1,3 @@
-/**
- * Implementação de uma estrutura de dados Fila (Queue) para inteiros.
- * Métodos: enqueue, dequeue, front, rear, isEmpty, size
- */
-
 public class MinhaFila {
     private int[] elementos;
     private int inicio;
@@ -16,7 +11,6 @@ public class MinhaFila {
         tamanho = 0;
     }
 
-    // enqueue() → Adiciona um inteiro à fila.
     public void enqueue(int valor) {
         if (tamanho == elementos.length) {
             throw new IllegalStateException("Fila cheia");
@@ -26,7 +20,6 @@ public class MinhaFila {
         tamanho++;
     }
 
-    // dequeue() → Remove um inteiro da fila.
     public int dequeue() {
         if (isEmpty()) {
             throw new IllegalStateException("Fila vazia");
@@ -37,7 +30,6 @@ public class MinhaFila {
         return valor;
     }
 
-    // front() → Retorna o inteiro que está na frente da fila.
     public int front() {
         if (isEmpty()) {
             throw new IllegalStateException("Fila vazia");
@@ -45,7 +37,6 @@ public class MinhaFila {
         return elementos[inicio];
     }
 
-    // rear() → Retorna o inteiro que está no fim da fila.
     public int rear() {
         if (isEmpty()) {
             throw new IllegalStateException("Fila vazia");
@@ -53,12 +44,10 @@ public class MinhaFila {
         return elementos[(fim - 1 + elementos.length) % elementos.length];
     }
 
-    // size() → Retorna o tamanho da fila.
     public int size() {
         return tamanho;
     }
 
-    // isEmpty() → Retorna true ou false dependendo da fila estar vazia ou não.
     public boolean isEmpty() {
         return tamanho == 0;
     }

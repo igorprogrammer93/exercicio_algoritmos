@@ -1,8 +1,3 @@
-/**
- * Implementação de uma Lista Encadeada de inteiros.
- * Métodos: push, pop, insert, remove, elementAt, size, printList
- */
-
 public class ListaEncadeada {
 
     static class Node {
@@ -18,12 +13,6 @@ public class ListaEncadeada {
     private Node cabeca;
     private int tamanho;
 
-    public ListaEncadeada() {
-        cabeca = null;
-        tamanho = 0;
-    }
-
-    // push(Node node) → Adiciona o nó ao fim da lista.
     public void push(Node node) {
         if (cabeca == null) {
             cabeca = node;
@@ -37,7 +26,6 @@ public class ListaEncadeada {
         tamanho++;
     }
 
-    // pop() → Remove o nó no fim da lista e retorna o mesmo.
     public Node pop() {
         if (cabeca == null) {
             throw new IllegalStateException("Lista vazia");
@@ -58,7 +46,6 @@ public class ListaEncadeada {
         return temp;
     }
 
-    // insert(int index, Node node) → Adiciona um nó na posição da lista indicada via parâmetro.
     public void insert(int index, Node node) {
         if (index < 0 || index > tamanho) {
             throw new IndexOutOfBoundsException("Índice inválido");
@@ -77,7 +64,6 @@ public class ListaEncadeada {
         tamanho++;
     }
 
-    // remove(int index) → Remove um nó na posição da lista indicada via parâmetro.
     public void remove(int index) {
         if (index < 0 || index >= tamanho) {
             throw new IndexOutOfBoundsException("Índice inválido");
@@ -94,7 +80,6 @@ public class ListaEncadeada {
         tamanho--;
     }
 
-    // elementAt(int index) → Retorna o elemento que está no índice da lista indicado via parâmetro.
     public Node elementAt(int index) {
         if (index < 0 || index >= tamanho) {
             throw new IndexOutOfBoundsException("Índice inválido");
@@ -106,12 +91,10 @@ public class ListaEncadeada {
         return atual;
     }
 
-    // size() → Retorna o tamanho da lista.
     public int size() {
         return tamanho;
     }
 
-    // printList() → Retorna uma representação em texto da lista.
     public void printList() {
         Node atual = cabeca;
         while (atual != null) {

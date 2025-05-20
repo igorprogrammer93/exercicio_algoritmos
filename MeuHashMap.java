@@ -1,17 +1,3 @@
-/**
- * Implementação de um Mapa de Hash do zero (inteiros como chave e valor).
- * Estrutura: Tabela com 10 buckets usando encadeamento (chaining).
- *
- * Justificativa da função hash:
- * Utilizamos a função 'hash = chave % 10' por ser simples e eficiente para tabelas de tamanho fixo.
- * Essa função distribui as chaves uniformemente em um vetor de tamanho 10, garantindo que o índice
- * esteja sempre entre 0 e 9. É uma escolha comum em implementações básicas de mapas de hash.
- *
- * Tratamento de colisões:
- * Em caso de múltiplas chaves resultarem no mesmo índice (colisão), utilizamos encadeamento (chaining).
- * Isso é feito ligando os pares chave/valor em uma lista encadeada no mesmo bucket.
- */
-
 public class MeuHashMap {
 
     static class Entrada {
@@ -29,34 +15,30 @@ public class MeuHashMap {
     private Entrada[] tabela;
 
     public MeuHashMap() {
-        tabela = new Entrada[10]; // Tamanho fixo de 10
+        tabela = new Entrada[10];
     }
 
-    // Função de hash simples: resto da divisão por 10
     private int hash(int chave) {
         return chave % 10;
     }
 
-    // put(int key, int value) → Adiciona o par chave/valor ao mapa
     public void put(int chave, int valor) {
         int indice = hash(chave);
         Entrada atual = tabela[indice];
 
         while (atual != null) {
             if (atual.chave == chave) {
-                atual.valor = valor; // Atualiza valor
+                atual.valor = valor;
                 return;
             }
             atual = atual.proximo;
         }
 
-        // Inserção na frente da lista
         Entrada novaEntrada = new Entrada(chave, valor);
         novaEntrada.proximo = tabela[indice];
         tabela[indice] = novaEntrada;
     }
 
-    // get(int key) → Retorna o valor associado à chave
     public Integer get(int chave) {
         int indice = hash(chave);
         Entrada atual = tabela[indice];
@@ -67,10 +49,9 @@ public class MeuHashMap {
             }
             atual = atual.proximo;
         }
-        return null; // Não encontrado
+        return null;
     }
 
-    // delete(int key) → Remove a entrada pela chave
     public void delete(int chave) {
         int indice = hash(chave);
         Entrada atual = tabela[indice];
@@ -90,7 +71,6 @@ public class MeuHashMap {
         }
     }
 
-    // clear() → Remove todos os elementos
     public void clear() {
         for (int i = 0; i < tabela.length; i++) {
             tabela[i] = null;
